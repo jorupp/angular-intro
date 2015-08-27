@@ -27,10 +27,11 @@ var rimraf = require('rimraf');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
+var sass = require('gulp-ruby-sass');
 
 var RESOURCE_SOURCE = 'src/resources/**';
 var JS_SCRIPT_SOURCE = 'src/**/*.js';
-var STYLE_SOURCE = 'src/**/*.less';
+var STYLE_SOURCE = 'src/sass/**/*.scss';
 var INDEX_SOURCE = 'src/index.html';
 var PORT = 4567;
 
@@ -100,39 +101,8 @@ gulp.task('scripts-release', [], function() {
 });
 
 function styles(){
-    return gulp.src(STYLE_SOURCE)
-        .pipe(plumber())
-        .pipe(changed('dist/styles'))
-        .pipe(sourcemaps.init())
-        // we run wiredep twice, once to really pull in bower components (bower: block), and once to just reference the (bower-refonly: block)
-        .pipe(wiredep.stream())
-        .pipe(wiredep.stream({
-            fileTypes:{
-                less: {
-                    block: /(([ \t]*)\/\/\s*bower-refonly:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
-                    replace: {
-                        less: '@import (reference) "{{filePath}}";'
-                    }
-                }
-            }
-        }))
-        .pipe(wiredep.stream({
-            exclude: [ /!(variables\.less)/ ],
-            fileTypes:{
-                less: {
-                    block: /(([ \t]*)\/\/\s*bower-variablesonly:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
-                }
-            }
-        }))
-        .pipe(wiredep.stream({
-            exclude: [ /variables\.less/ ],
-            fileTypes:{
-                less: {
-                    block: /(([ \t]*)\/\/\s*bower-novariables:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
-                }
-            }
-        }))
-        .pipe(less());
+    return sass('src/sass/')
+        .on('error', sass.logError);
 }
 
 gulp.task('styles', [], function () {

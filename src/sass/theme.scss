@@ -1,0 +1,50 @@
+/**
+ * Based on Black theme for reveal.js, modified to match rightpoint.com
+ */
+
+
+// Default mixins and settings -----------------
+@import "../../bower_components/reveal.js/css/theme/template/mixins";
+@import "../../bower_components/reveal.js/css/theme/template/settings";
+// ---------------------------------------------
+
+$orange: #e74a1f;
+$blue: #50afc1;
+$green: #665c2d;
+$white: white;
+
+// Include theme-specific fonts
+@import url("//www.rightpoint.com/Content/WebFont-Din.css");
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #302f2d;
+
+$mainColor: #fff;
+$headingColor: $orange;
+
+$mainFontSize: 38px;
+$mainFont: 'PFDinTextPro',Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+$headingFont: 'PFDinTextPro',Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: $blue;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: $backgroundColor;
+	}
+}
+
+
+// Theme template ------------------------------
+@import "../../bower_components/reveal.js/css/theme/template/theme";
+// ---------------------------------------------

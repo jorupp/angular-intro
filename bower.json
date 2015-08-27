@@ -20,7 +20,6 @@
     "reveal.js": {
       "main": [
         "css/reveal.css",
-        "css/theme/black.css",
         "lib/css/zenburn.css",
         "lib/js/head.min.js",
         "js/reveal.js",
