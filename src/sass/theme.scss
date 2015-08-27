@@ -14,7 +14,7 @@ $green: #665c2d;
 $white: white;
 
 // Include theme-specific fonts
-@import url("//www.rightpoint.com/Content/WebFont-Din.css");
+//@import url("//www.rightpoint.com/Content/WebFont-Din.css");
 
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #302f2d;
@@ -23,11 +23,11 @@ $mainColor: #fff;
 $headingColor: $orange;
 
 $mainFontSize: 38px;
-$mainFont: 'PFDinTextPro',Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-$headingFont: 'PFDinTextPro',Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+$mainFont: Arial,sans-serif;
+$headingFont: Arial,sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
-$headingTextTransform: none;
+$headingTextTransform: uppercase;
 $headingFontWeight: 600;
 $linkColor: $blue;
 $linkColorHover: lighten( $linkColor, 15% );

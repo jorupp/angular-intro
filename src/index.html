@@ -22,6 +22,85 @@
         <p>For Javascript developers</p>
         <p><img style="background: white" src="resources/AngularJS-large.png"/></p>
       </section>
+      <section>
+        <section>
+          <p>Before we get to Angular in particular, let's talk about modern javascript frameworks in general and some terminology</p>
+        </section>
+        <section>
+          <h2>Common features of modern javascript frameworks</h2>
+          <ul class="fragment">
+            <li>Templating/data binding</li>
+            <li>Change tracking/detection</li>
+            <li>UI components</li>
+            <li>Client-side Routing</li>
+            <li>Dependency Injection</li>
+          </ul>
+          <p class="fragment">While talking about these Javascript frameworks, you'll also hear the term "SPA" thrown around.</p>
+        </section>
+        <section>
+          <h2>What is a "SPA"</h2>
+          <p>A <u>S</u>ingle <u>P</u>age <u>A</u>pplication refers loading just one HTML page via the browser's normal approach, referring to JS and CSS from that page, and using AJAX for everything else.</p>
+        </section>
+        <section>
+          <h2>So, Angular is used to build SPAs?</h2>
+          <p class="fragment">It can, but you don't have to.  SPA is one of your options.  Enhancing a server-delivered page is another equally viable option.</p>
+        </section>
+        <section>
+          <h2>Other modern javascript frameworks</h2>
+          <div class="fragment">
+            <ul>
+              <li>jQuery</li>
+              <li>Knockout</li>
+              <li>Backbone</li>
+              <li>Ember</li>
+              <li>React</li>
+              <li>D3</li>
+            </ul>
+            <p style="font-size: x-small; text-align: right;">**Yes, there are many more....</p>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>Enough generic stuff, what does Angular really offer?</h2>
+          <ul>
+            <li>An engine that parses your HTML to execute "directives" and bind data based on your markup</li>
+            <li>A facility for registering and resolving services</li>
+            <li>
+                Services and directives to help you build your application
+                <ul>
+                  <li>Routing</li>
+                  <li>Validation</li>
+                  <li>etc.</li>
+                </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>But wait, there's more!</h2>
+          <p class="fragment">Not really - that's all you need!</p>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>What is a directive?</h2>
+          <pre>
+            <code>&lt;span ng-if="vm.someValue"&gt;Show me if vm.someValue is true&lt;/span&gt;</code>
+          </pre>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>Data binding</h2>
+          <div class="fragment">
+            <pre>
+              <code>&lt;span&gt;{{ vm.someValue }}&lt;/span&gt;</code>
+            </pre>
+            <p>Angular uses a similar syntax to <a href="http://handlebarsjs.com/">Handlebars</a> or <a href="https://mustache.github.io/">Mustache</a></p>
+            <p>Unlike some frameworks (like Knockout), Angular binds to bare values - no observable wrappers necessary.</p>
+          </div>
+        </section>
+      </section>
     </div>
   </div>
 
@@ -33,8 +112,11 @@
   
   <script>
     Reveal.initialize({
-      transition: 'concave'
+      transition: 'concave',
+      progress: true,
+      history: true
     });
+    hljs.initHighlightingOnLoad();
   </script>
 </body>
 </html>
