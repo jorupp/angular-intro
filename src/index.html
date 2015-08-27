@@ -65,7 +65,7 @@
           <h2>Enough generic stuff, what does Angular really offer?</h2>
           <ul>
             <li>An engine that parses your HTML to execute "directives" and bind data based on your markup</li>
-            <li>A facility for registering and resolving services</li>
+            <li>A facility for registering and resolving services and controllers</li>
             <li>
                 Services and directives to help you build your application
                 <ul>
@@ -83,14 +83,6 @@
       </section>
       <section>
         <section>
-          <h2>What is a directive?</h2>
-          <pre>
-            <code>&lt;span ng-if="vm.someValue"&gt;Show me if vm.someValue is true&lt;/span&gt;</code>
-          </pre>
-        </section>
-      </section>
-      <section>
-        <section>
           <h2>Data binding</h2>
           <div class="fragment">
             <pre>
@@ -100,6 +92,94 @@
             <p>Unlike some frameworks (like Knockout), Angular binds to bare values - no observable wrappers necessary.</p>
           </div>
         </section>
+        <section>
+          <h2>Directives</h2>
+          <p class="fragment">Directives manipulate the DOM based on data.</p>
+          <div class="fragment">
+            <pre>
+              <code>&lt;span ng-if="vm.someValue"&gt;Show me if vm.someValue is true&lt;/span&gt;</code>
+            </pre>
+            <p><code>ng-if</code> is one of many built-in directives.  It adds/removes the tag it is on from the DOM based on the value specified.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Services</h2>
+          <p class="fragment">A service is a singleton object, and typically exposes a series of methods to be called by other components</p>
+          <div class="fragment">
+            <p>Typical functions of services:</p>
+            <ul>
+              <li>Wrap <code>$http</code> to provide access to remote data</li>
+              <li>Shared functionality (like the built-in <code>$locale</code> and <code>$log</code> services)</li>
+              <li>Share state between other components (ie. a global filter control, or the built-in <code>$templateCache</code> service)</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h2>Controllers</h2>
+          <p class="fragment">Controllers surface data and or methods for use with data binding and/or directives.</p>
+          <p class="fragment">Some light, single-use business logic may be defined here, but most heavy is delegated to services to allow for more reuse.</p>
+          <p class="fragment">When using '<code>controllerAs</code>', these can be likened to the view model in a MVVM model.</p>
+        </section>
+        <section>
+          <h2>Modules</h2>
+          <p>Modules are kind of a 'meh' feature in Angular 1.4.  They don't provide dynamic loading, they don't provide namespace isolation</p>
+          <p>All they seem to do is provide one more way to break your code (adding a reference to a libary and forgetting to reference it's module from your main module).</p>
+          <p class="fragment">Counterpoints welcome.</p>
+        </section>
+        <section>
+          <h2>Routing</h2>
+          <p class="fragment">While routing may not be a core functional unit of Angular, it's a service every SPA will need to function</p>
+          <p class="fragment">We'll be discussing angular-ui's router, not the built-in ngRoute.  Angular-ui-router is often sometimes call "new router" because it's going to eventually end up replacing ngRoute in 2.0, if not sooner.</p>
+        </section>
+        <section>
+          <h2>Dependency Injection</h2>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Example time!!!</h1>
+          <p class="fragment"><a href="http://localhost:4567/" target="_blank">Room Ninja</a> is a SPA written in Angular JS 1.4 with a ASP.Net WebAPI backend.</p>
+        </section>
+        <section>
+          <h2>Example checkup time</h2>
+          <p>If ran through the example properly, you saw:</p>
+          <ul>
+            <li>A routing registration (/settings)</li>
+            <li>A controller (SettingsController)</li>
+            <li>A view (settings.html)</li>
+            <li>A service (settingsService)</li>
+            <li></li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>Change detection and $scope</h2>
+          <p>In Angular, you're going to hear references to <code>$scope</code> (or just <code>scope</code>).  What is it?</p>
+          <p class="fragment">In short, it's the magic bit of Angular that ties everything together and provides the basis for change tracking</p>
+          <p class="fragment">At it's core, it's just a <code>$rootScope</code> object at the root of a tree of scopes that cooperate to handle data binding and change tracking</p>
+        </section>
+        <section>
+          <h2>So, how does this work?</h2>
+          <p class="fragment current-visible">Magic :)</p>
+          <div class="fragment">
+            <p>Seriously though, it's all the magic of the <code>$digest()</code> cycle with <code>$watch()</code>es.</p>
+            <p>With a reference to a <code>scope</code>, you can use the <code>$watch()</code> method to register a watch on a specific value, and run code in response to the change.</p>
+            <p>At certain times (ie. after an event), Angular will start a digest cycle, which will check all registered watches to see if any changed.  If so, it will trigger the function associated with the watch that changed, and repeat the cycle until there is a cycle with no watches changed.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Digest vs. observable</h2>
+          <p>Unlike observable-based approaches which react immediately, reactions are delayed until the next cycle, which can make it much easier to avoid value ping-pong with intricately-connected values.</p>
+          <p>With observable-based approaches, each change to an observable with listeners has a cost, and no real way to 'batch' changes together</p>
+          <p>With angular's approach, each <code>$digest</code> cycle has a cost based on the number of values being watched, but all changes apply immediately when executed with no need to batch them.</p>
+        </section>
+      </section>
+      <section>
+        <h2>Angular 2.0</h2>
+        <p>So, you've heard about Angular 2.0, eh?  Why should we learn Angular 1.4?  Why not learn Angular 2.0 instead?</p>
+        <p class="fragment">Angular 2.0 doesn't exist - it's pre-alpha and the API changes frequently.</p>
+        <p class="fragment">By following a few conventions, your code will be structured in a similar way to how it will need to be for 2.0, and can ease the learning/upgrade experience.</p>
       </section>
     </div>
   </div>

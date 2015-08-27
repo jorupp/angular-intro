@@ -48,3 +48,12 @@ section.has-light-background {
 // Theme template ------------------------------
 @import "../../bower_components/reveal.js/css/theme/template/theme";
 // ---------------------------------------------
+
+.reveal .slides section {
+	.fragment.current-visible {
+		height: 0;
+		&.current-fragment {
+			height: auto;
+		}
+	}
+}

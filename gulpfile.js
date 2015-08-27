@@ -33,7 +33,7 @@ var RESOURCE_SOURCE = 'src/resources/**';
 var JS_SCRIPT_SOURCE = 'src/**/*.js';
 var STYLE_SOURCE = 'src/sass/**/*.scss';
 var INDEX_SOURCE = 'src/index.html';
-var PORT = 4567;
+var PORT = 5678;
 
 // clean/prep dist directory when starting
 console.log('removing dist directory....');
