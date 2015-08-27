@@ -1,0 +1,32 @@
+{
+  "name": "angular-intro",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jorupp/angular-intro",
+  "authors": [
+    "jrupp <jrupp@rightpoint.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js": "~3.1.0"
+  },
+  "overrides": {
+    "reveal.js": {
+      "main": [
+        "css/reveal.css",
+        "css/theme/black.css",
+        "lib/css/zenburn.css",
+        "lib/js/head.min.js",
+        "js/reveal.js",
+        "plugin/highlight/highlight.js",
+        "plugin/zoom-js/zoom.js"
+      ]
+    }
+  }
+}
