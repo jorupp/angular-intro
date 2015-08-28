@@ -8,18 +8,22 @@
 @import "../../bower_components/reveal.js/css/theme/template/settings";
 // ---------------------------------------------
 
-$orange: #e74a1f;
-$blue: #50afc1;
-$green: #665c2d;
-$white: white;
+$white: #F2EFE8;
+$grey: #8D827A;
+$orange: #CD3F25;
+$blue: #52ADC0;
+$yellow: #EDC41A;
+$green: #AABA40;
+$dblue: #006091;
+$purple: #754775;
 
 // Include theme-specific fonts
 //@import url("//www.rightpoint.com/Content/WebFont-Din.css");
 
 // Override theme settings (see ../template/settings.scss)
-$backgroundColor: #302f2d;
+$backgroundColor: $white;
 
-$mainColor: #fff;
+$mainColor: $grey;
 $headingColor: $orange;
 
 $mainFontSize: 38px;
@@ -49,11 +53,19 @@ section.has-light-background {
 @import "../../bower_components/reveal.js/css/theme/template/theme";
 // ---------------------------------------------
 
-.reveal .slides section {
-	.fragment.current-visible {
-		height: 0;
-		&.current-fragment {
-			height: auto;
+.reveal {
+	.slides section {
+		.fragment.current-visible {
+			height: 0;
+			&.current-fragment {
+				height: auto;
+			}
 		}
+	}
+	p code { 
+		background-color: $grey;
+		padding: 2px 5px;
+		color: $yellow;
+		font-size: 1.1em; 
 	}
 }
