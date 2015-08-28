@@ -95,9 +95,7 @@
         <section>
           <h2>Data binding</h2>
           <div class="fragment">
-            <pre>
-              <code>&lt;span&gt;{{ vm.someValue }}&lt;/span&gt;</code>
-            </pre>
+            <pre><code>&lt;span&gt;{{ vm.someValue }}&lt;/span&gt;</code></pre>
             <p>Angular uses a similar syntax to <a href="http://handlebarsjs.com/">Handlebars</a> or <a href="https://mustache.github.io/">Mustache</a></p>
             <p>Unlike some frameworks (like Knockout), Angular binds to bare values - no observable wrappers necessary.</p>
           </div>
@@ -200,6 +198,7 @@
           <p>When <code>myValue</code> on the scope changes, the provided function will run.</p>
           <p>Pass <code>true</code> as the third parameter for a deep watch (ie. using angular.equals for comparison).</p>
           <p>While you don't see it, data binding uses this internally (yes, even for one-time (<code>::value</code>) bindings)</p>
+          <p class="fragment" style="font-size: small;">spinner example here</p>
         </section>
         <section>
           <h2>Digest vs. observable</h2>
